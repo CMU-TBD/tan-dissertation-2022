@@ -1,0 +1,6 @@
+[submodule "Dependencies/behavior_machine"]
+	path = Dependencies/behavior_machine
+	url = git@github.com:CMU-TBD/behavior_machine.git
+[submodule "Dependencies/alloy"]
+	path = Dependencies/alloy
+	url = git@github.com:CMU-TBD/alloy.git
