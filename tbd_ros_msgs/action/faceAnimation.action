@@ -1,0 +1,6 @@
+tbd_ros_msgs/FaceAnimationObject[] objects
+----
+bool success
+----
+float32 progress # from 0-1 where it is
+float32 duration # the duration of the animation calculated 

@@ -1,0 +1,2 @@
+string actorName
+geometry_msgs/PoseStamped pose
