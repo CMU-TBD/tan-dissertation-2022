@@ -1,0 +1,4 @@
+<launch>
+    <arg name="output" default="log"/>
+    <node name="tbd_audio_common_node" pkg="tbd_audio_common" type="audio_node" output="$(arg output)"/>
+</launch>
