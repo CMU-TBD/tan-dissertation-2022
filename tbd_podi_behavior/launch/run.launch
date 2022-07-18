@@ -1,0 +1,22 @@
+<launch>
+    
+    <arg name="output"                  default="screen"/>
+    <arg name="namespace"               default="podi"  />
+    <arg name="map_to_env_x"            default="0"     />
+    <arg name="map_to_env_y"            default="0"     />
+    <arg name="map_to_env_a"            default="0"     />
+    <arg name="map_name"                                />
+
+    <!-- Start a coordinator -->
+    <node name="podi_coordinator" pkg="tbd_behavior_coordinator" type="podi_coordinator.py" output="$(arg output)" ns="$(arg namespace)" />
+    <!-- Start the actuators-->
+    <include file="$(find tbd_podi_behavior)/launch/start_actuators.launch">
+        <arg name="output"          value="$(arg output)" />
+        <arg name="namespace"       value="$(arg namespace)" />
+        <arg name="map_name"        value="$(arg map_name)" />
+        <arg name="map_to_env_x"    value="$(arg map_to_env_x)" />
+        <arg name="map_to_env_y"    value="$(arg map_to_env_y)" />
+        <arg name="map_to_env_a"    value="$(arg map_to_env_a)" />
+
+    </include>
+</launch>

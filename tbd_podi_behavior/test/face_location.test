@@ -1,0 +1,4 @@
+<launch>
+    <param name="test_module" value="$(find tbd_podi_behavior)/test"/>
+    <test test-name="test_face_location" pkg="ros_pytest" type="ros_pytest_runner" />
+</launch>

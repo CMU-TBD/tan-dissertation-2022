@@ -1,0 +1,73 @@
+<launch>
+
+    <arg name="namespace"               default="podi" />
+    <arg name="output"                  default="screen" />
+    <arg name="sim"                     default="true" />
+    <arg name="use_joy"                 default="$(eval not sim)" />
+    <arg name="enabling_switch"         default="$(eval not sim)" />
+    <arg name="launch_rviz"             default="false" />
+    <arg name="display_local"           default="false" />
+    <arg name="enable_human_costmaps"   default="true" />
+    <arg name="rviz_config_path"        default="$(find tbd_podi_gazebo)/rviz/2dnav.rviz" />
+    <arg name="initial_pose_x_in_map"   default="0" />
+    <arg name="initial_pose_y_in_map"   default="0" />
+    <arg name="initial_pose_a_in_map"   default="0" />
+    <arg name="map_to_env_x"            default="0" />
+    <arg name="map_to_env_y"            default="0" />
+    <arg name="map_to_env_z"            default="0" />
+    <arg name="map_to_env_q_w"          default="0" />
+    <arg name="map_to_env_q_x"          default="0" />
+    <arg name="map_to_env_q_y"          default="0" />
+    <arg name="map_to_env_q_z"          default="0" />
+    <arg name="map_name"                />
+
+    <!-- DEPENDENCIES -->
+
+    <!-- Start the low level controllers -->
+    <!-- These are automatically appended with the robot_name prefix hence no need for namespace  -->
+    <include file="$(find tbd_podi_common)/launch/control_robot_laser.launch" >
+        <arg name="sim"                         value="$(arg sim)" />
+        <arg name="output"                      value="$(arg output)" />
+        <arg name="use_joy"                     value="$(arg use_joy)"/>
+        <arg name="enabling_switch"             value="$(arg enabling_switch)"/>
+        <arg name="robot_name"		            value="$(arg namespace)" />
+    </include>
+    <!-- ROS Navigation -->
+    <include file="$(find tbd_podi_2dnav)/launch/start_ros_nav.launch">
+        <arg name="robot_command_topic"     value="nav_cmd_vel" />
+        <arg name="robot_laser_topic"       value="laser" />
+        <arg name="map_name"                value="$(arg map_name)" />
+        <arg name="initial_pose_x"          value="$(arg initial_pose_x_in_map)" />
+        <arg name="initial_pose_y"          value="$(arg initial_pose_y_in_map)" />
+        <arg name="initial_pose_a"          value="$(arg initial_pose_a_in_map)" />
+        <arg name="enable_human_costmaps"   value="$(arg enable_human_costmaps)" />
+    </include>
+    
+    <group ns="$(arg namespace)">
+        <!-- podi's polly speech component -->
+        <include file="$(find tbd_polly_speech)/launch/polly_speech.launch" />
+        <!-- Start Podi's Face -->
+        <include file="$(find tbd_podi_face)/launch/run.launch">
+            <arg name="sim" value="$(arg sim)" />
+            <arg name="display_local" value="$(arg display_local)" />
+            <arg name="topic_name" value="screen_face" />
+        </include>
+        <!-- The sound play component -->
+        <include file="$(find sound_play)/soundplay_node.launch" />
+    </group>
+    
+    <node pkg="tf2_ros" type="static_transform_publisher" name="podi_map_to_env" args="$(arg map_to_env_x) $(arg map_to_env_y) $(arg map_to_env_z) $(arg map_to_env_q_x) $(arg map_to_env_q_y) $(arg map_to_env_q_z) $(arg map_to_env_q_w) podi_map env" required="true" />
+
+    <!-- END DEPENDENCIES -->
+    
+    <!-- Start the actuators -->
+    <group ns="$(arg namespace)">
+        <node pkg="tbd_podi_behavior" name="podi_voice_actuator_node" type="podi_voice_actuator.py" output="$(arg output)" required="true"/>
+        <node pkg="tbd_podi_behavior" name="podi_move_actuator" type="move_actuator.py" output="$(arg output)" required="true"/>
+        <node pkg="tbd_podi_behavior" name="podi_gaze_actuator" type="gaze_actuator.py" output="$(arg output)" required="true"/>
+        <node pkg="tbd_podi_behavior" name="agent_state" type="podi_agent_node.py" output="$(arg output)" required="true"/>
+    </group>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config_path)" required="true" if="$(arg launch_rviz)"/>
+
+</launch>

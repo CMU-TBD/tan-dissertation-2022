@@ -1,0 +1,12 @@
+<launch>
+
+    <!-- Start the controller -->
+    <node name="gaze_controller" pkg="tbd_podi_behavior" type="gaze_controller_node.py" output="screen" />
+    <!-- Start a fake TF publisher between head and world -->
+    <node pkg="tf" type="static_transform_publisher" name="world_head_tf" args="0 0 0 0 0 0 1 world podi/head 100" />
+    <!-- Start a fake face animation server  -->
+    <node name="fake_face" pkg="tbd_podi_behavior" type="sim_face_animation_server" output="screen" />
+
+    <!-- Start the test files -->
+    <test test-name="gaze_controller_test" pkg="tbd_podi_behavior" type="test_gaze_controller" args="--text"/>
+</launch>
