@@ -1,0 +1,34 @@
+<launch>
+    
+    <arg name="output"          default="screen"/>
+    <arg name="form"            default="baxter" />
+    <arg name="namespace"       default="baxter" />
+    <arg name="base_to_env_x"   default="0" />
+    <arg name="base_to_env_y"   default="0" />
+    <arg name="base_to_env_a"   default="0" />
+
+    <group ns="$(arg namespace)">
+
+        <!-- Launch the local dependencies -->
+        <include file="$(find tbd_polly_speech)/launch/polly_speech.launch" if="$(eval form == 'baxter')"/>
+        <include file="$(find tbd_baxter_head)/launch/baxter_head.launch">
+            <arg name="form" value="$(arg form)" />
+        </include>
+
+        <!-- Launch the actuators -->
+        <node pkg="tbd_baxter_behavior" name="head_actuator_node" type="head_actuator.py" output="$(arg output)"/>
+        <node pkg="tbd_baxter_behavior" name="polly_voice_actuator_node" type="polly_voice_actuator.py" output="$(arg output)" if="$(eval form == 'baxter')"/>
+        <node name="baxter_agent_state" pkg="tbd_baxter_behavior" type="baxter_agent_node.py" output="$(arg output)" /> 
+    </group>
+
+    <!-- Special case if we are using the hybrid baxter + robocept: Start their actuators -->
+    <include file="$(find tbd_robocept_behavior)/launch/start_actuators.launch" if="$(eval form == 'robocept')">
+        <arg name="output" value="$(arg output)" />
+        <arg name="namespace" value="$(arg namespace)" />
+        <arg name="agent_node" value="false" />
+    </include>
+
+    <group ns="$(arg namespace)" >
+        <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_env" args="$(arg base_to_env_x) $(arg base_to_env_y) 0.93 $(arg base_to_env_a) 0 0 env world" />
+    </group>
+</launch>

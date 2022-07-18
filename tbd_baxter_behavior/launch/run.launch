@@ -1,0 +1,16 @@
+<launch>
+    
+    <arg name="output" default="screen"/>
+    <arg name="form" default="baxter"/>
+
+    <!-- Start a coordinator -->
+    <include file="$(find tbd_behavior_coordinator)/launch/basic_coordinator.launch" ns="$(arg form)">
+        <arg name="output" value="$(arg output)" />
+    </include>
+    <!-- Start the actuators-->
+    <include file="$(find tbd_baxter_behavior)/launch/start_actuators.launch">
+        <arg name="output" value="$(arg output)" />
+        <arg name="namespace" value="$(arg form)" />
+        <arg name="form" value="$(arg form)" />
+    </include>
+</launch>
