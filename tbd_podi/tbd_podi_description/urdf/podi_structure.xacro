@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- The size of the tablet -->
+    <xacro:property name="face_screen_width" value="0.006" />
+    <xacro:property name="face_screen_height" value="0.169" />
+    <xacro:property name="face_screen_length" value="0.2373" />
+    <!-- The size of the screen on th etable -->
+    <xacro:property name="display_width" value="0.01" />
+    <xacro:property name="display_height" value="0.147" />
+    <xacro:property name="display_length" value="0.197" />
+
+    <link name="$(arg robot_name)_laser_scanner">
+        <xacro:box_inertial x="0.105" y="0.102" z="0.152" mass="0.429" />
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry name="lms100">
+                <mesh filename="package://tbd_podi_description/meshes/sick-lms1xx.dae"/>
+            </geometry>
+            <material name="laser_scanner_color">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry name="lms100">
+                <mesh filename="package://tbd_podi_description/meshes/sick-lms1xx.dae"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="$(arg robot_name)_laser_scanner_to_base_joint" type="fixed">
+        <origin xyz="${0.046 + 0.0545} 0 ${0.234 + 0.1524 - 0.008 - 0.0367}" rpy="${pi} 0 0"/>
+        <parent link="$(arg robot_name)_base_link"/>
+        <child link="$(arg robot_name)_laser_scanner"/>
+    </joint>
+
+    <link name="$(arg robot_name)_calibration_marker">
+        <xacro:box_inertial x="0.2921" y="0.1651" z="0.01" mass="0.1" />
+        <visual>
+            <origin xyz="${0.2921/2} ${0.1651/2} 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.2921 0.1651 0.01" />
+            </geometry>
+            <material name="$display_color">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="$(arg robot_name)_calibration_marker_to_base_joint" type="fixed">
+        <origin xyz="${-0.085} ${0.1463 + 0.007} ${0.234 + 0.213}" rpy="${pi/2} ${-pi/2} ${pi}"/>
+        <parent link="$(arg robot_name)_base_link"/>
+        <child link="$(arg robot_name)_calibration_marker"/>
+    </joint>
+
+    <link name="$(arg robot_name)_head_bottom_bar">
+        <xacro:box_inertial x="0.0254" y="0.3048" z="0.0254" mass="0.1" />
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size=" 0.0254 0.3048 0.0254" />
+            </geometry>
+            <material name="$display_color">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="$(arg robot_name)_head_bottom_bar_to_base_joint" type="fixed">
+        <origin xyz="0.1651 0 ${0.234 + 0.3175}" rpy="0 0 0"/>
+        <parent link="$(arg robot_name)_base_link"/>
+        <child link="$(arg robot_name)_head_bottom_bar"/>
+    </joint>
+
+    <link name="$(arg robot_name)_head_mount">
+        <inertial>
+            <mass value="0.01" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <joint name="$(arg robot_name)_head_mount_to_head_bottom_bar" type="fixed">
+        <origin xyz="${0.0254} 0.0 ${0.0889}" rpy="0 0 0"/>
+        <parent link="$(arg robot_name)_head_bottom_bar"/>
+        <child link="$(arg robot_name)_head_mount"/>
+    </joint>
+
+    <link name="$(arg robot_name)_head">
+        <inertial>
+            <mass value="0.01" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+
+    <joint name="$(arg robot_name)_head_to_head_mount" type="fixed">
+        <origin xyz="0 0 ${face_screen_height/2}" rpy="0 0 0"/>
+        <parent link="$(arg robot_name)_head_mount"/>
+        <child link="$(arg robot_name)_head"/>
+    </joint>
+
+
+    <link name="$(arg robot_name)_face_screen">
+        <xacro:box_inertial x="${face_screen_width}" y="${face_screen_length}" z="${face_screen_height}" mass="0.429" />
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="${face_screen_width} ${face_screen_length} ${face_screen_height}" />
+            </geometry>
+            <material name="face_screen_color">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="${face_screen_width} ${face_screen_length} ${face_screen_height}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="$(arg robot_name)_head_to_screen_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="$(arg robot_name)_head"/>
+        <child link="$(arg robot_name)_face_screen"/>
+    </joint>
+
+    <link name="$(arg robot_name)_display">
+        <inertial>
+            <mass value="0.01" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size=" ${display_length} ${display_height} ${display_width}" />
+            </geometry>
+            <material name="$display_color">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size=" ${display_length} ${display_height} ${display_width}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="$(arg robot_name)_display_to_screen_joint" type="fixed">
+        <origin xyz="0.01 0 0" rpy="${3.1415927/2.0} 0 ${3.1415927/2.0}"/>
+        <parent link="$(arg robot_name)_face_screen"/>
+        <child link="$(arg robot_name)_display"/>
+    </joint>
+
+
+    <link name="$(arg robot_name)_head_top_bar">
+        <xacro:box_inertial x="0.0254" y="0.3048" z="0.0254" mass="0.1" />
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size=" 0.0254 0.3048 0.0254" />
+            </geometry>
+            <material name="$display_color">
+                <color rgba="1 1 1 1"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="$(arg robot_name)_head_top_bar_to_head_bottom_bar" type="fixed">
+        <origin xyz="0 0 ${0.254}" rpy="0 0 0"/>
+        <parent link="$(arg robot_name)_head_bottom_bar"/>
+        <child link="$(arg robot_name)_head_top_bar"/>
+    </joint>
+
+    <!-- Note that the baseframe is created by the ZED URDF -->
+   <joint name="$(arg robot_name)_head_camera_mount_to_head_top_bar" type="fixed">
+        <origin xyz="0 0 ${0.0127 + 0.03/2}" rpy="0 0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="$(arg robot_name)_head_top_bar"/>
+        <child link="$(arg robot_name)_head_camera_mount"/>
+    </joint>
+
+    <xacro:arg name="base_frame" default="$(arg robot_name)_head_camera_mount"/>
+    <xacro:arg name="camera_model" default="zed2"/>
+    <xacro:arg name="camera_name" default="$(arg robot_name)_front_camera"/>
+    <xacro:include filename="$(find tbd_podi_description)/urdf/zed_descr.urdf.xacro">
+    </xacro:include>
+    <!-- camera_name="zed2" camera_model="zed2" base_frame="${robotname_camera_mount}"/> -->
+
+    <!-- Include Azure Kinect -->
+    <!-- <xacro:insert_azure_kinect parent="$(arg robot_name)_front_camera_mount" tf_prefix=""/> -->
+    <!-- <link name="$(arg robot_name)_front_camera_mount">
+        <inertial>
+            <mass value="0.0001" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+     -->
+</robot>

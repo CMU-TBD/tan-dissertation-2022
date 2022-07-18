@@ -1,0 +1,538 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /RobotModel1
+      Splitter Ratio: 0.5
+    Tree Height: 549
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.800000011920929
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        podi_back_sonar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_calibration_marker:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_caster_hubcap:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_caster_swivel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_caster_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_display:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_face_screen:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_front_camera_baro_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_camera_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_front_camera_left_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_left_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_mag_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_right_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_right_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_temp_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_camera_temp_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_front_sonar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_handle_back_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_handle_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_handle_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_handle_bottom_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_handle_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_head_bottom_bar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_head_camera_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_head_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        podi_head_top_bar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_laser_scanner:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_left_hubcap:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_right_hubcap:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        podi_top_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: podi/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base:
+          Value: true
+        podi_back_sonar:
+          Value: true
+        podi_base_link:
+          Value: true
+        podi_calibration_marker:
+          Value: true
+        podi_caster_hubcap:
+          Value: true
+        podi_caster_swivel:
+          Value: true
+        podi_caster_wheel:
+          Value: true
+        podi_display:
+          Value: true
+        podi_face_screen:
+          Value: true
+        podi_front_camera_baro_link:
+          Value: true
+        podi_front_camera_camera_center:
+          Value: true
+        podi_front_camera_left_camera_frame:
+          Value: true
+        podi_front_camera_left_camera_optical_frame:
+          Value: true
+        podi_front_camera_mag_link:
+          Value: true
+        podi_front_camera_right_camera_frame:
+          Value: true
+        podi_front_camera_right_camera_optical_frame:
+          Value: true
+        podi_front_camera_temp_left_link:
+          Value: true
+        podi_front_camera_temp_right_link:
+          Value: true
+        podi_front_sonar:
+          Value: true
+        podi_handle_back_plate:
+          Value: true
+        podi_handle_base:
+          Value: true
+        podi_handle_bottom:
+          Value: true
+        podi_handle_bottom_plate:
+          Value: true
+        podi_handle_top:
+          Value: true
+        podi_head:
+          Value: true
+        podi_head_bottom_bar:
+          Value: true
+        podi_head_camera_mount:
+          Value: true
+        podi_head_mount:
+          Value: true
+        podi_head_top_bar:
+          Value: true
+        podi_laser_scanner:
+          Value: true
+        podi_left_hubcap:
+          Value: true
+        podi_left_wheel:
+          Value: true
+        podi_right_hubcap:
+          Value: true
+        podi_right_wheel:
+          Value: true
+        podi_top_plate:
+          Value: true
+        reference/base:
+          Value: true
+        reference/collision_head_link_1:
+          Value: true
+        reference/collision_head_link_2:
+          Value: true
+        reference/display:
+          Value: true
+        reference/dummyhead1:
+          Value: true
+        reference/head:
+          Value: true
+        reference/head_camera:
+          Value: true
+        reference/left_arm_itb:
+          Value: true
+        reference/left_arm_mount:
+          Value: true
+        reference/left_gripper:
+          Value: true
+        reference/left_gripper_base:
+          Value: true
+        reference/left_gripper_mass:
+          Value: true
+        reference/left_gripper_object_mass:
+          Value: true
+        reference/left_hand:
+          Value: true
+        reference/left_hand_accelerometer:
+          Value: true
+        reference/left_hand_camera:
+          Value: true
+        reference/left_hand_camera_axis:
+          Value: true
+        reference/left_hand_range:
+          Value: true
+        reference/left_lower_elbow:
+          Value: true
+        reference/left_lower_forearm:
+          Value: true
+        reference/left_lower_shoulder:
+          Value: true
+        reference/left_torso_itb:
+          Value: true
+        reference/left_upper_elbow:
+          Value: true
+        reference/left_upper_elbow_visual:
+          Value: true
+        reference/left_upper_forearm:
+          Value: true
+        reference/left_upper_forearm_visual:
+          Value: true
+        reference/left_upper_shoulder:
+          Value: true
+        reference/left_wrist:
+          Value: true
+        reference/pedestal:
+          Value: true
+        reference/right_arm_itb:
+          Value: true
+        reference/right_arm_mount:
+          Value: true
+        reference/right_gripper:
+          Value: true
+        reference/right_gripper_base:
+          Value: true
+        reference/right_gripper_mass:
+          Value: true
+        reference/right_gripper_object_mass:
+          Value: true
+        reference/right_hand:
+          Value: true
+        reference/right_hand_accelerometer:
+          Value: true
+        reference/right_hand_camera:
+          Value: true
+        reference/right_hand_camera_axis:
+          Value: true
+        reference/right_hand_range:
+          Value: true
+        reference/right_lower_elbow:
+          Value: true
+        reference/right_lower_forearm:
+          Value: true
+        reference/right_lower_shoulder:
+          Value: true
+        reference/right_torso_itb:
+          Value: true
+        reference/right_upper_elbow:
+          Value: true
+        reference/right_upper_elbow_visual:
+          Value: true
+        reference/right_upper_forearm:
+          Value: true
+        reference/right_upper_forearm_visual:
+          Value: true
+        reference/right_upper_shoulder:
+          Value: true
+        reference/right_wrist:
+          Value: true
+        reference/screen:
+          Value: true
+        reference/sonar_ring:
+          Value: true
+        reference/torso:
+          Value: true
+        world:
+          Value: true
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        podi_base_link:
+          podi_back_sonar:
+            {}
+          podi_calibration_marker:
+            {}
+          podi_caster_swivel:
+            podi_caster_wheel:
+              podi_caster_hubcap:
+                {}
+          podi_front_sonar:
+            {}
+          podi_handle_base:
+            podi_handle_bottom_plate:
+              podi_handle_back_plate:
+                podi_handle_bottom:
+                  podi_handle_top:
+                    {}
+          podi_head_bottom_bar:
+            podi_head_mount:
+              podi_head:
+                podi_face_screen:
+                  podi_display:
+                    {}
+            podi_head_top_bar:
+              podi_head_camera_mount:
+                podi_front_camera_camera_center:
+                  podi_front_camera_baro_link:
+                    {}
+                  podi_front_camera_left_camera_frame:
+                    podi_front_camera_left_camera_optical_frame:
+                      {}
+                    podi_front_camera_temp_left_link:
+                      {}
+                  podi_front_camera_mag_link:
+                    {}
+                  podi_front_camera_right_camera_frame:
+                    podi_front_camera_right_camera_optical_frame:
+                      {}
+                    podi_front_camera_temp_right_link:
+                      {}
+          podi_laser_scanner:
+            {}
+          podi_left_wheel:
+            podi_left_hubcap:
+              {}
+          podi_right_wheel:
+            podi_right_hubcap:
+              {}
+          podi_top_plate:
+            {}
+      Update Interval: 0
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: podi_base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 2.8592286109924316
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.3003983497619629
+      Target Frame: <Fixed Frame>
+      Yaw: 4.301748752593994
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 846
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd000000040000000000000156000002b0fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000002b0000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002b0fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000002b0000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004380000003efc0100000002fb0000000800540069006d0065010000000000000438000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000001c7000002b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1080
+  X: 558
+  Y: 79
