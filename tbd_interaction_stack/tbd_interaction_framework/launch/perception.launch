@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- Start Azure Kinect & It's converters -->
+    <include file="$(find tbd_people_recognition)/launch/startAzureKinect.launch" />
+
+    <!-- Start Audio Input -->
+
+
+</launch>

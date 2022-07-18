@@ -1,0 +1,8 @@
+Header header #To keep track when this action was issued
+geometry_msgs/PoseStamped desire_pose #The desired pose to go to. Could be a different time
+---
+bool complete
+geometry_msgs/PoseStamped final_pose
+---
+# Define a feedback message
+float32 percent_complete

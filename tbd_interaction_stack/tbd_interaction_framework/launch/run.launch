@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find tbd_interaction_framework)/launch/perception.launch" />
+    <include file="$(find tbd_interaction_framework)/launch/control.launch" />
+    <include file="$(find tbd_interaction_framework)/launch/actuator.launch" />
+
+</launch>

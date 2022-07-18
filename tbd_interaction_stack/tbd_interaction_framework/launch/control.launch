@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="tbd_interaction_framework" type="run.py" name="interaction_node" output="screen">
+    </node>
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+    <arg name="output" default="screen" />
+    <node name="basic_coordinator" pkg="tbd_behavior_coordinator" type="basic_coordinator.py" output="$(arg output)" />
+</launch>

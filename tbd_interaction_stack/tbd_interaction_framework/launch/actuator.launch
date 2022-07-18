@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- Use Baxter behavior manager -->
+    <!-- <include file="$(find tbd_baxter_behavior)/launch/run.launch" /> -->
+
+    <!-- Use Computer behavior manager -->
+    <include file="$(find tbd_computer_behavior)/launch/run.launch" />
+
+</launch>

@@ -1,0 +1,16 @@
+Header header #To keep track when this action was issued
+geometry_msgs/PointStamped target # The target of the gaze if appplicable.
+duration length # how long the gaze should go on for
+int8 gaze_type # Type of gaze
+
+int8 GAZE_DEFAULT = 0 # The default gaze behavior
+int8 GAZE_DIRECT = 1
+int8 GAZE_AVERSION = 2
+---
+int8 code
+int8 RESULT_SUCCESS = 0
+int8 RESULT_CANNOT_FIND_TRANSFORMS = 1 #Error code when we cannot figure out the transformations between target and head
+int8 RESULT_TARGET_BEHIND_HEAD = 2 # Target is literally behind the head
+int8 RESULT_TARGET_OUT_OF_VIEW_RANGE = 3 # Similar to above, but because its in some weird location, like parallel to the head.
+int8 RESULT_NOT_IMPLEMENTED = 4 
+---
