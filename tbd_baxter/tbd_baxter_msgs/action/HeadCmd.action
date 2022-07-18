@@ -1,0 +1,8 @@
+float32 target # radians for target, 0 str
+bool enable_noise # whether to have the head move with noise
+duration duration # how long it suppose to take
+
+---
+#the result
+bool complete
+---

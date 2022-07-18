@@ -1,0 +1,7 @@
+<launch>
+    <arg name="output" default="screen"/>
+
+	<node name="head_controller" pkg="tbd_baxter_head" type="head_controller.py" output="$(arg output)"/>
+	<node name="test_head_controller" pkg="tbd_baxter_head" type="test_head_controller.py" output="$(arg output)" />
+	
+</launch>

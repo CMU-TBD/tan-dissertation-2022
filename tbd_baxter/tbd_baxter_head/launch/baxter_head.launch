@@ -1,0 +1,23 @@
+<launch>
+    <arg name="output" default="screen"/>
+	<arg name="form" default="baxter"/>
+
+	<node name="head_server" pkg="tbd_baxter_head" type="head_controller.py" output="$(arg output)"/>
+
+	<include file="$(find tbd_screen_face)/launch/run.launch"  if="$(eval form == 'baxter')" >
+		<arg name="output" value="$(arg output)" />
+		<arg name="topic_name" value="/robot/xdisplay" />
+		<arg name="height" value="600" />
+		<arg name="width" value="1024" />
+		<arg name="encoding" value="bgr8" />
+	</include>
+
+	<group if="$(eval form == 'robocept')">
+		<node name="baxter_robocept_face_relay" pkg="tbd_baxter_head" type="robocept_face_relay.py" output="$(arg output)">
+			<remap from="face_in" to="/robocept/robocept_face" /> 
+			<remap from="face_out" to="/robot/xdisplay" /> 
+		</node>
+	</group>
+
+
+</launch>
